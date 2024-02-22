@@ -108,16 +108,16 @@ begin
 end;
 
 /// <summary>
-/// Obtém o valor de um atributo HTML declarado deste elemento.
+/// Obtï¿½m o valor de um atributo HTML declarado deste elemento.
 /// </summary>
 /// <param name="attributeName">O nome do atributo HTML para obter o valor.</param>
 /// <returns>O valor atual do atributo HTML. Retorna <see langword="null"/> se o
-/// valor não estiver definido ou se o atributo declarado não existir.</returns>
+/// valor nï¿½o estiver definido ou se o atributo declarado nï¿½o existir.</returns>
 /// <remarks>
-/// Ao contrário do método <see cref="GetAttribute(string)"/>, este método
-/// retorna apenas atributos declarados na marcação HTML do elemento. Para acessar o valor
-/// de uma propriedade IDL do elemento, use o método <see cref="GetAttribute(string)"/>
-/// ou o método <see cref="GetDomProperty(string)"/>.
+/// Ao contrï¿½rio do mï¿½todo <see cref="GetAttribute(string)"/>, este mï¿½todo
+/// retorna apenas atributos declarados na marcaï¿½ï¿½o HTML do elemento. Para acessar o valor
+/// de uma propriedade IDL do elemento, use o mï¿½todo <see cref="GetAttribute(string)"/>
+/// ou o mï¿½todo <see cref="GetDomProperty(string)"/>.
 /// </remarks>
 function TTSWebDriverElement.GetDomAttribute(const attributeName: string): string;
 var
@@ -131,38 +131,38 @@ begin
 end;
 
 /// <summary>
-/// Obtém o valor do atributo ou propriedade especificado para este elemento.
+/// Obtï¿½m o valor do atributo ou propriedade especificado para este elemento.
 /// </summary>
 /// <param name="attributeName">O nome do atributo ou propriedade.</param>
 /// <returns>O valor atual do atributo ou propriedade. Retorna <see langword="null"/>
-/// se o valor não estiver definido.</returns>
-/// <remarks>O método <see cref="GetAttribute"/> retornará o valor atual
-/// do atributo ou propriedade, mesmo que o valor tenha sido modificado após o carregamento
-/// da página. Observe que o valor dos seguintes atributos será retornado
-/// mesmo se não houver um atributo explícito no elemento:
+/// se o valor nï¿½o estiver definido.</returns>
+/// <remarks>O mï¿½todo <see cref="GetAttribute"/> retornarï¿½ o valor atual
+/// do atributo ou propriedade, mesmo que o valor tenha sido modificado apï¿½s o carregamento
+/// da pï¿½gina. Observe que o valor dos seguintes atributos serï¿½ retornado
+/// mesmo se nï¿½o houver um atributo explï¿½cito no elemento:
 /// <list type="table">
 /// <listheader>
 /// <term>Nome do Atributo</term>
-/// <term>Valor retornado se não especificado explicitamente</term>
-/// <term>Tipos válidos de elementos</term>
+/// <term>Valor retornado se nï¿½o especificado explicitamente</term>
+/// <term>Tipos vï¿½lidos de elementos</term>
 /// </listheader>
 /// <item>
 /// <description>checked</description>
 /// <description>checked</description>
-/// <description>Caixa de seleção (Check Box)</description>
+/// <description>Caixa de seleï¿½ï¿½o (Check Box)</description>
 /// </item>
 /// <item>
 /// <description>selected</description>
 /// <description>selected</description>
-/// <description>Opções em elementos Select</description>
+/// <description>Opï¿½ï¿½es em elementos Select</description>
 /// </item>
 /// <item>
 /// <description>disabled</description>
 /// <description>disabled</description>
-/// <description>Entrada e outros elementos de interface do usuário (UI)</description>
+/// <description>Entrada e outros elementos de interface do usuï¿½rio (UI)</description>
 /// </item>
 /// </list>
-/// O método verifica tanto os atributos declarados na marcação HTML da página quanto
+/// O mï¿½todo verifica tanto os atributos declarados na marcaï¿½ï¿½o HTML da pï¿½gina quanto
 /// as propriedades do elemento ao acessar as propriedades do elemento
 /// via JavaScript.
 /// </remarks>
@@ -294,7 +294,9 @@ end;
 
 procedure TTSWebDriverElement.Clear;
 begin
-  raise ENotImplemented.Create('Not implemented');
+  FDriver.Execute.Post(
+    MakeURL(FDriver.SessionID, CLEAR_ELEMENT).Replace(':id', FElementID, [rfIgnoreCase]),
+    '{"text": ""}');
 end;
 
 function TTSWebDriverElement.GetSize: TSize;

@@ -130,6 +130,7 @@ begin
   CommandMap.Add(FIND_CHILD_ELEMENT, '/session/:sessionId/element/:id/element');
   CommandMap.Add(FIND_CHILD_ELEMENTS, '/session/:sessionId/element/:id/elements');
   CommandMap.Add(SEND_KEYS_TO_ELEMENT, '/session/:sessionId/element/:id/value');
+  CommandMap.Add(CLEAR_ELEMENT, '/session/:sessionId/element/:id/clear');
   CommandMap.Add(CLICK_ELEMENT, '/session/:sessionId/element/:id/click');
 
   CommandMap.Add(GET_ELEMENT_ATTRIBUTE, '/session/:sessionId/element/:id/attribute/:attributeName');
